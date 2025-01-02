@@ -148,7 +148,7 @@ public class Main extends ApplicationAdapter {
     @Override
     public void render() {
         //sndStart.play();
-        batch.setProjectionMatrix(camera.combined);
+        // batch.setProjectionMatrix(camera.combined);
 
 
         if (Gdx.input.justTouched()) {
@@ -185,6 +185,7 @@ public class Main extends ApplicationAdapter {
                 if (gameState == GAME3) gameState = GAME3_1;
             }
                 if (gameState == GAME4 && touch.x >=551 && touch.x <= 756 && touch.y >= 144 && touch.y <=243){
+                    sndStart.stop();
                     if (times5 == 0) {
                         sndNewYear.play();
                         times5++;
@@ -196,6 +197,7 @@ public class Main extends ApplicationAdapter {
 
                 }
         }
+        batch.setProjectionMatrix(camera.combined);
 
 
         batch.begin();
@@ -294,7 +296,7 @@ public class Main extends ApplicationAdapter {
 
                 touch.set(Gdx.input.getX(), Gdx.input.getY(), 0);
 
-                camera.unproject(touch);
+              //  camera.unproject(touch);
                 //    System.out.println(touch.x + " " + touch.y);
                 for (int i = 0; i < redToys.length; i++) {
                     if (touch.x >= redToys[i].x && touch.x <= redToys[i].x + redToys[i].width && Math.abs(touch.y - SCR_HEIGHT) >= redToys[i].y && Math.abs(touch.y - SCR_HEIGHT) <= redToys[i].y + redToys[i].height) {
